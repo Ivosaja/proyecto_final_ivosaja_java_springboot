@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.talentotech.gestionproveedores.model.Proveedor;
 import com.talentotech.gestionproveedores.service.ProveedorService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/proveedores")
 public class ProveedorController {
@@ -41,13 +43,13 @@ public class ProveedorController {
 
     // --------------- ENDPOINT POST: CREAR UN NUEVO PROVEEDOR --------------- //
     @PostMapping()
-    public ResponseEntity<Proveedor> agregarProveedor(@RequestBody Proveedor proveedor){
+    public ResponseEntity<Proveedor> agregarProveedor(@Valid @RequestBody Proveedor proveedor){
         return ResponseEntity.status(HttpStatus.CREATED).body(this.proveedorService.crearProveedor(proveedor));
     }
 
     // --------------- ENDPOINT PUT: ACTUALIZAR UN PROVEEDOR --------------- //
     @PutMapping("/{id}")
-    public ResponseEntity<Proveedor> actualizarProveedor(@PathVariable Long id, @RequestBody Proveedor nuevoProveedor){
+    public ResponseEntity<Proveedor> actualizarProveedor(@PathVariable Long id, @Valid @RequestBody Proveedor nuevoProveedor){
         Proveedor proveedorActualizado = this.proveedorService.actualizarProveedor(nuevoProveedor, id);
         return ResponseEntity.ok(proveedorActualizado);
     }
