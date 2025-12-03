@@ -2,15 +2,19 @@ package com.talentotech.gestionproveedores.errors;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.talentotech.gestionproveedores.enums.TipoProveedor;
+import com.talentotech.gestionproveedores.enums.TipoRubro;
 import com.talentotech.gestionproveedores.exception.ProveedorNoEncontradoException;
 
 @RestControllerAdvice // Este decorador hace que la clase maneje las excepciones de cualquier controlador en toda la aplicacion
@@ -43,6 +47,23 @@ public class ManejadorExcepcionesGlobal {
             mensajes,
             LocalDateTime.now()
         );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    // Maneja la excepcion de HttpMessageNotReadableException que tira al intentar convertir cuerpos de peticiones HTTP a objetos de Java
+    @ExceptionHandler(exception = HttpMessageNotReadableException.class)
+    public ResponseEntity<RespuestaError> manejarConversionesInvalidas(HttpMessageNotReadableException ex){
+        String mensaje = "Datos invalidos en la peticion";
+        if(ex.getMessage().contains("TipoRubro") || ex.getMessage().contains("TipoProveedor")){
+            mensaje = "Valor de enum invalido. Valores permitidos para tipoRubro: " + Arrays.toString(TipoRubro.values()) + ". Valores permitidos para tipoProveedor: " + Arrays.toString(TipoProveedor.values());
+        }
+
+        RespuestaError error = new RespuestaError(
+            HttpStatus.BAD_REQUEST.value(),
+            mensaje,
+            LocalDateTime.now()
+        );
+
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 }
