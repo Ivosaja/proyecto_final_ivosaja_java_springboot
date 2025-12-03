@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.talentotech.gestionproveedores.enums.TipoProveedor;
+import com.talentotech.gestionproveedores.enums.TipoRubro;
 import com.talentotech.gestionproveedores.model.Proveedor;
 import com.talentotech.gestionproveedores.service.ProveedorService;
 
@@ -32,6 +35,18 @@ public class ProveedorController {
     @GetMapping()
     public ResponseEntity<List<Proveedor>> obtenerProveedores(){
         return ResponseEntity.ok(this.proveedorService.obtenerProveedores());
+    }
+
+    // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES DE UN TIPO DE RUBRO ESPECIFICO --------------- //
+    @GetMapping("/filtrar/tipo-rubro")
+    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoRubro(@RequestParam TipoRubro tipoRubro){
+        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoRubro(tipoRubro));
+    }
+
+    // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES DE UN TIPO DE PROVEEDOR ESPECIFICO --------------- //
+    @GetMapping("/filtrar/tipo-proveedor")
+    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoProveedor(@RequestParam TipoProveedor tipoProveedor){
+        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoProveedor(tipoProveedor));
     }
 
     // --------------- ENDPOINT GET: OBTENER UN PROVEEDOR POR ID --------------- //

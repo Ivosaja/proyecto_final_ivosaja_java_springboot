@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.talentotech.gestionproveedores.enums.TipoProveedor;
+import com.talentotech.gestionproveedores.enums.TipoRubro;
 import com.talentotech.gestionproveedores.exception.ProveedorNoEncontradoException;
 import com.talentotech.gestionproveedores.model.Proveedor;
 import com.talentotech.gestionproveedores.repository.ProveedorRepository;
@@ -23,6 +25,20 @@ public class ProveedorServiceImpl implements ProveedorService{
     @Override
     public List<Proveedor> obtenerProveedores(){
         return this.proveedorRepository.findAll();
+    }
+
+    // ----------------------------- OBTENER PROVEEDORES POR TIPO RUBRO ----------------------------- //
+    // Metodo encargado de devolver todos los proveedores de un tipo de rubro especifico de la DB
+    @Override
+    public List<Proveedor> obtenerProveedoresPorTipoRubro(TipoRubro tipoRubro){
+        return this.proveedorRepository.findByTipoRubro(tipoRubro);
+    }
+
+    // ----------------------------- OBTENER PROVEEDORES POR TIPO RUBRO ----------------------------- //
+    // Metodo encargado de devolver todos los proveedores de un tipo de rubro especifico de la DB
+    @Override
+    public List<Proveedor> obtenerProveedoresPorTipoProveedor(TipoProveedor tipoProveedor){
+        return this.proveedorRepository.findByTipoProveedor(tipoProveedor);
     }
 
     // ----------------- OBTENER PROVEEDOR POR ID ----------------- //
