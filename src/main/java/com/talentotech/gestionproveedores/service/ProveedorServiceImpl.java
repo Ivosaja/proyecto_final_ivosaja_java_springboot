@@ -34,8 +34,8 @@ public class ProveedorServiceImpl implements ProveedorService{
         return this.proveedorRepository.findByTipoRubro(tipoRubro);
     }
 
-    // ----------------------------- OBTENER PROVEEDORES POR TIPO RUBRO ----------------------------- //
-    // Metodo encargado de devolver todos los proveedores de un tipo de rubro especifico de la DB
+    // ----------------------------- OBTENER PROVEEDORES POR TIPO PROVEEDOR ----------------------------- //
+    // Metodo encargado de devolver todos los proveedores de un tipo de proveedor especifico de la DB
     @Override
     public List<Proveedor> obtenerProveedoresPorTipoProveedor(TipoProveedor tipoProveedor){
         return this.proveedorRepository.findByTipoProveedor(tipoProveedor);
