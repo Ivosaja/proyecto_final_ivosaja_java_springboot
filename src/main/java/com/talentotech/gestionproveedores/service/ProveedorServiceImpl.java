@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.talentotech.gestionproveedores.exception.ProveedorInvalidoException;
 import com.talentotech.gestionproveedores.exception.ProveedorNoEncontradoException;
 import com.talentotech.gestionproveedores.model.Proveedor;
 import com.talentotech.gestionproveedores.repository.ProveedorRepository;
@@ -38,12 +37,6 @@ public class ProveedorServiceImpl implements ProveedorService{
     // Metodo encargado de crear un proveedor en la BD
     @Override
     public Proveedor crearProveedor(Proveedor p){
-        if(p.getNombre() == null || p.getNombre().isBlank()){
-            throw new ProveedorInvalidoException("Campo invalido. El nombre del proveedor no puede ser vacio");
-        }
-        if(p.getApellido() == null || p.getApellido().isBlank()){
-            throw new ProveedorInvalidoException("Campo invalido. El apellido del proveedor no puede ser vacio");
-        }
         return this.proveedorRepository.save(p);
     }
 
@@ -53,13 +46,6 @@ public class ProveedorServiceImpl implements ProveedorService{
     public Proveedor actualizarProveedor(Proveedor nuevoProveedor, Long id){
         Proveedor p = this.proveedorRepository.findById(id)
             .orElseThrow(() -> new ProveedorNoEncontradoException("Proveedor con ID: " + id + " no encontrado"));
-        
-        if(nuevoProveedor.getNombre() == null || nuevoProveedor.getNombre().isBlank()){
-            throw new ProveedorInvalidoException("Campo invalido. El nombre del proveedor no puede ser vacio");
-        }
-        if(nuevoProveedor.getApellido() == null || nuevoProveedor.getApellido().isBlank()){
-            throw new ProveedorInvalidoException("Campo invalido. El apellido del proveedor no puede ser vacio");
-        }
 
         p.setNombre(nuevoProveedor.getNombre());
         p.setApellido(nuevoProveedor.getApellido());
