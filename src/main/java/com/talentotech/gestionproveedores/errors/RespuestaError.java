@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 public class RespuestaError {
 
     private int status;
-    private String mensaje;
+    private Object mensaje; // Acepta String o List (en caso de tener varios errores)
     private LocalDateTime timestamp;
 
-    public RespuestaError(int status, String mensaje, LocalDateTime timestamp){
+    public RespuestaError(int status, Object mensaje, LocalDateTime timestamp){
         this.status = status;
         this.mensaje = mensaje;
         this.timestamp = timestamp;
@@ -19,7 +19,7 @@ public class RespuestaError {
         return this.status;
     }
 
-    public String getMensaje() {
+    public Object getMensaje() {
         return this.mensaje;
     }
 
@@ -31,7 +31,7 @@ public class RespuestaError {
         this.status = status;
     }
 
-    public void setMensaje(String mensaje) {
+    public void setMensaje(Object mensaje) {
         this.mensaje = mensaje;
     }
 
