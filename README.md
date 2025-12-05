@@ -44,12 +44,14 @@ docker compose up
 docker exec -it gestion_proveedores_mysql bash
 ```
 
+> [!TIP]
+> Usar contraseña definida en application.properties
+
 ```bash
 # Entras al servicio de MySQL
 mysql -u root -p
 ```
 > 
-
 
 ```sql
 /* Selecciona la BD gestion_proveedores */
