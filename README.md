@@ -1,4 +1,4 @@
-## Gestión de Proveedores - API REST (Spring Boot + MySQL)
+# Gestión de Proveedores - API REST (Spring Boot + MySQL)
 
 
 **API REST** desarrollada con **Spring Boot**, siguiendo una arquitectura **MVC**, utilizando **JPA/Hibernate** para la persistencia de datos y una base de datos **MySQL dockerizada** para facilitar la ejecución en cualquier entorno.
