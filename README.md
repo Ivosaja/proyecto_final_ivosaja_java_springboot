@@ -1,5 +1,3 @@
-# Entrega Final - Talento Tech (Java & Springboot)
-
 ## Gestión de Proveedores - API REST (Spring Boot + MySQL)
 
 
