@@ -1,12 +1,27 @@
 # Entrega Final - Talento Tech (Java & Springboot)
 
-**API REST** - Gestion de **Proveedores**
+## API REST - Gestion de Proveedores
 
 - Diseñada con una arquitectura modular **MVC**
 
+### Requisitos
+- JDK de Java 17
+- Docker
+
+### Endpoints de la API
+| Método | Endpoint                                      | Descripción                                                                 |
+|--------|-----------------------------------------------|-----------------------------------------------------------------------------|
+| GET    | `/api/v1/proveedores`                         | Listar todos los proveedores                                                |
+| GET    | `/api/v1/proveedores/filtrar/tipo-rubro`      | Listar proveedores por **rubro**.<br>Query param: `rubro`.<br>Ejemplo: `/api/v1/proveedores/filtrar/tipo-rubro?rubro=ALIMENTOS` |
+| GET    | `/api/v1/proveedores/filtrar/tipo-proveedor`  | Listar proveedores por **tipo**.<br>Query param: `tipo`.<br>Ejemplo: `/api/v1/proveedores/filtrar/tipo-proveedor?tipo=MAYORISTA` |
+| GET    | `/api/v1/proveedores/{id}`                    | Obtener un proveedor por ID                                                 |
+| POST   | `/api/v1/proveedores`                         | Crear un proveedor nuevo                                                    |
+| PUT    | `/api/v1/proveedores/{id}`                    | Editar un proveedor existente                                               |
+| DELETE | `/api/v1/proveedores/{id}`                    | Eliminar un proveedor existente                                             |
 
 
-**Prueba de API**
+
+### Prueba de API
 
 1) Clonar el repositorio
 ```bash
@@ -35,6 +50,9 @@ docker compose up
 ```bash
 ./mvnw spring-boot:run
 ```
+
+> [!NOTE]
+> La API estara disponible en <localhost:8080/api/v1/proveedores>
 
 5) Ver los cambios reflejados en la BD
 
