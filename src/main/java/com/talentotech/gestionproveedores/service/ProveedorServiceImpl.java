@@ -21,24 +21,22 @@ public class ProveedorServiceImpl implements ProveedorService{
     }
 
     // ----------------------- OBTENER PROVEEDORES ----------------------- //
-    // Metodo encargado de devolver todos los proveedores de la BD
+    // Metodo encargado de devolver todos los proveedores de la BD o aquellos que cumplen con los filtros
     @Override
-    public List<Proveedor> obtenerProveedores(){
+    public List<Proveedor> obtenerProveedores(TipoRubro tipoRubro, TipoProveedor tipoProveedor){
+        if(tipoRubro != null && tipoProveedor != null){
+            return this.proveedorRepository.findByTipoRubroAndTipoProveedor(tipoRubro, tipoProveedor);
+        }
+
+        if(tipoRubro != null){
+            return this.proveedorRepository.findByTipoRubro(tipoRubro);
+        }
+        
+        if(tipoProveedor != null){
+            return this.proveedorRepository.findByTipoProveedor(tipoProveedor);
+        }
+
         return this.proveedorRepository.findAll();
-    }
-
-    // ----------------------------- OBTENER PROVEEDORES POR TIPO RUBRO ----------------------------- //
-    // Metodo encargado de devolver todos los proveedores de un tipo de rubro especifico de la DB
-    @Override
-    public List<Proveedor> obtenerProveedoresPorTipoRubro(TipoRubro tipoRubro){
-        return this.proveedorRepository.findByTipoRubro(tipoRubro);
-    }
-
-    // ----------------------------- OBTENER PROVEEDORES POR TIPO PROVEEDOR ----------------------------- //
-    // Metodo encargado de devolver todos los proveedores de un tipo de proveedor especifico de la DB
-    @Override
-    public List<Proveedor> obtenerProveedoresPorTipoProveedor(TipoProveedor tipoProveedor){
-        return this.proveedorRepository.findByTipoProveedor(tipoProveedor);
     }
 
     // ----------------- OBTENER PROVEEDOR POR ID ----------------- //

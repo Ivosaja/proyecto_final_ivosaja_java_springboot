@@ -16,5 +16,6 @@ public interface ProveedorRepository extends JpaRepository<Proveedor, Long>{
     // Metodos custom para buscar proveedores segun criterios
     List<Proveedor> findByTipoRubro(TipoRubro tipoRubro);
     List<Proveedor> findByTipoProveedor(TipoProveedor tipoProveedor);
+    List<Proveedor> findByTipoRubroAndTipoProveedor(TipoRubro tipoRubro, TipoProveedor tipoProveedor);
 
 }

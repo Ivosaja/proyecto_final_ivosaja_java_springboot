@@ -31,22 +31,13 @@ public class ProveedorController {
         this.proveedorService = proveedorService;
     }
 
-    // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES --------------- //
+    // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES (pueden pasarse filtros por query params) --------------- //
     @GetMapping()
-    public ResponseEntity<List<Proveedor>> obtenerProveedores(){
-        return ResponseEntity.ok(this.proveedorService.obtenerProveedores());
-    }
-
-    // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES DE UN TIPO DE RUBRO ESPECIFICO --------------- //
-    @GetMapping("/filtrar/tipo-rubro")
-    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoRubro(@RequestParam TipoRubro rubro){
-        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoRubro(rubro));
-    }
-
-    // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES DE UN TIPO DE PROVEEDOR ESPECIFICO --------------- //
-    @GetMapping("/filtrar/tipo-proveedor")
-    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoProveedor(@RequestParam TipoProveedor tipo){
-        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoProveedor(tipo));
+    public ResponseEntity<List<Proveedor>> obtenerProveedores(
+        @RequestParam(required = false) TipoRubro rubro,
+        @RequestParam(required = false) TipoProveedor tipo
+    ){
+        return ResponseEntity.ok(this.proveedorService.obtenerProveedores(rubro, tipo));
     }
 
     // --------------- ENDPOINT GET: OBTENER UN PROVEEDOR POR ID --------------- //
