@@ -62,4 +62,17 @@ donde se almacenan los proveedores
 SELECT * FROM proveedor; 
 ```
 
+6) Una vez testeada, apagar aplicacion y contenedores
+
+```bash
+# Detener aplicacion de Spring Boot (API)
+Ctrl + C
+
+# Detener contenedores (BD)
+docker compose down
+
+# Detener contenedores y limpieza total de datos (eliminacion de volumenes)
+docker compose down -v
+```
+
 
