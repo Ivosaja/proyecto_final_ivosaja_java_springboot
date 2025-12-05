@@ -1,15 +1,30 @@
 # Entrega Final - Talento Tech (Java & Springboot)
 
-## API REST - Gestion de Proveedores
+## Gestión de Proveedores - API REST (Spring Boot + MySQL)
 
-- Diseñada con una arquitectura modular **MVC**
 
+**API REST** desarrollada con **Spring Boot**, siguiendo una arquitectura **MVC**, utilizando **JPA/Hibernate** para la persistencia de datos y una base de datos **MySQL dockerizada** para facilitar la ejecución en cualquier entorno.
+
+Permite realizar un **CRUD completo** de proveedores y filtrarlos por **rubro** y **tipo** mediante parámetros opcionales **(query params)**
+
+---
 
 ### Requisitos
 - JDK de Java 17
 - Docker
 
+### Tecnologias utilizadas
+- Java 17
+- Spring Boot
+    - Spring Web
+    - Spring Data JPA
+    - Spring Validation (Jakarta)
+- Hibernate (ORM)
+- MySQL (via Docker)
+- Maven
+
 ---
+
 
 ### Endpoints de la API
 
@@ -25,6 +40,27 @@
 - `POST /api/v1/proveedores` - Crear un nuevo proveedor
 - `PUT /api/v1/proveedores/{id}` - Actualizar un proveedor existente
 - `DELETE /api/v1/proveedores/{id}` - Eliminar un proveedor existente  
+
+---
+
+### Estructura del proyecto
+
+```bash
+src/
+ └── main/
+      ├── java/com/talentotech/gestionproveedores/
+      │    ├── controller/       # Controladores REST
+      │    ├── service/          # Lógica de negocio
+      │    ├── repository/       # Acceso a datos JPA
+      │    ├── model/            # Entidades JPA
+      │    ├── enums/            # Enumeraciones (TipoRubro, TipoProveedor)
+      │    ├── exception/        # Excepciones personalizadas
+      │    ├── errors/           # Manejo de excepciones
+      │    └── GestionProveedoresApplication.java
+      │
+      └── resources/
+           └── application.properties # Configuraciones
+```
 
 ---
 
@@ -51,9 +87,8 @@ docker compose up
 ```
 
 4) Levantar la API realizada en springboot
-- Dirigirse a ```src/main/java/com/talentotech/gestionproveedores/GestionProveedoresApplication.java```
-- Click en **Run** dentro del IDE
-- **(Otra opcion)**: Abrir terminal dentro de la carpeta raiz del proyecto y ejecutar: 
+- Opcion 1): Ejecutar la clase ```src/main/java/com/talentotech/gestionproveedores/GestionProveedoresApplication.java```
+- Opcion 2): Abrir terminal dentro de la carpeta raiz del proyecto y ejecutar: 
 ```bash
 ./mvnw spring-boot:run
 ```
