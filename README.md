@@ -30,8 +30,8 @@ docker compose up
 
 4) Levantar la API realizada en springboot
 - Dirigirse a ```src/main/java/com/talentotech/gestionproveedores/GestionProveedoresApplication.java```
-- Click en Run dentro del IDE o abrir
-- (Otra opcion): Abrir terminal dentro de la carpeta raiz del proyecto y ejecutar: 
+- Click en **Run** dentro del IDE
+- **(Otra opcion)**: Abrir terminal dentro de la carpeta raiz del proyecto y ejecutar: 
 ```bash
 ./mvnw spring-boot:run
 ```
@@ -44,14 +44,12 @@ docker compose up
 docker exec -it gestion_proveedores_mysql bash
 ```
 
-> [!TIP]
-> Usar contraseña definida en application.properties
-
 ```bash
 # Entras al servicio de MySQL
 mysql -u root -p
 ```
-> 
+> [!TIP]
+> Usar contraseña definida en application.properties
 
 ```sql
 /* Selecciona la BD gestion_proveedores */
