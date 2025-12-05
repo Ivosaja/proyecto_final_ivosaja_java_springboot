@@ -7,7 +7,6 @@
 
 Permite realizar un **CRUD completo** de proveedores y filtrarlos por **rubro** y **tipo** mediante parámetros opcionales **(query params)**
 
----
 
 ### Requisitos
 - JDK de Java 17
