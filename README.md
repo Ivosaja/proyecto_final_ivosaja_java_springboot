@@ -4,20 +4,20 @@
 
 - Diseñada con una arquitectura modular **MVC**
 
+
 ### Requisitos
 - JDK de Java 17
 - Docker
 
+---
+
 ### Endpoints de la API
-| Método | Endpoint                                      | Descripción                                                                 |
-|--------|-----------------------------------------------|-----------------------------------------------------------------------------|
-| GET    | `/api/v1/proveedores`                         | Listar todos los proveedores                                                |
-| GET    | `/api/v1/proveedores/filtrar/tipo-rubro`      | Listar proveedores por **rubro**.<br>Query param: `rubro`.<br>Ejemplo: `/api/v1/proveedores/filtrar/tipo-rubro?rubro=ALIMENTOS` |
-| GET    | `/api/v1/proveedores/filtrar/tipo-proveedor`  | Listar proveedores por **tipo**.<br>Query param: `tipo`.<br>Ejemplo: `/api/v1/proveedores/filtrar/tipo-proveedor?tipo=MAYORISTA` |
-| GET    | `/api/v1/proveedores/{id}`                    | Obtener un proveedor por ID                                                 |
-| POST   | `/api/v1/proveedores`                         | Crear un proveedor nuevo                                                    |
-| PUT    | `/api/v1/proveedores/{id}`                    | Editar un proveedor existente                                               |
-| DELETE | `/api/v1/proveedores/{id}`                    | Eliminar un proveedor existente                                             |
+
+- `GET /api/v1/proveedores` - Listar todos los proveedores
+- `GET /api/v1/proveedores/{id}` - Obtener un proveedor por ID
+- `POST /api/v1/proveedores` - Crear un nuevo proveedor
+- `PUT /api/v1/proveedores/{id}` - Actualizar un proveedor existente
+- `DELETE /api/v1/proveedores/{id}` - Eliminar un proveedor existente  
 
 ---
 
