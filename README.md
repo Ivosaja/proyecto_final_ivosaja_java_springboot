@@ -19,7 +19,7 @@
 | PUT    | `/api/v1/proveedores/{id}`                    | Editar un proveedor existente                                               |
 | DELETE | `/api/v1/proveedores/{id}`                    | Eliminar un proveedor existente                                             |
 
-
+---
 
 ### Prueba de API
 
@@ -52,7 +52,7 @@ docker compose up
 ```
 
 > [!NOTE]
-> La API estara disponible en <localhost:8080/api/v1/proveedores>
+> La API estara disponible en <http://localhost:8080/api/v1/proveedores>
 
 5) Ver los cambios reflejados en la BD
 
