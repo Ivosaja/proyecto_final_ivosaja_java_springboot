@@ -13,7 +13,14 @@
 
 ### Endpoints de la API
 
-- `GET /api/v1/proveedores` - Listar todos los proveedores
+- `GET /api/v1/proveedores` - Listar todos los proveedores o buscar segun criterios (rubro, tipo)
+    - **Parametros opcionales (query params):**
+        - `rubro` - Buscar por rubro (ALIMENTOS, TECNOLOGIA, CONSTRUCCION)
+        - `tipo` - Buscar por tipo (MAYORISTA, MINORISTA, DISTRIBUIDOR, FABRICANTE)
+    - **Ejemplos:**
+        - `/api/v1/proveedores?rubro=ALIMENTOS` - Proveedores cuyo rubro sea ALIMENTOS
+        - `/api/v1/proveedores?tipo=MAYORISTA` - Proveedores cuyo tipo sea MAYORISTA
+        - `/api/v1/proveedores?rubro=ALIMENTOS&tipo=MAYORISTA` - Proveedores cuyo rubro sea ALIMENTOS y cuyo tipo sea MAYORISTA
 - `GET /api/v1/proveedores/{id}` - Obtener un proveedor por ID
 - `POST /api/v1/proveedores` - Crear un nuevo proveedor
 - `PUT /api/v1/proveedores/{id}` - Actualizar un proveedor existente
