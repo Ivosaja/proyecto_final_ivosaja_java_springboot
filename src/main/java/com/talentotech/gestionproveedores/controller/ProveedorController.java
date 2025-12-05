@@ -39,14 +39,14 @@ public class ProveedorController {
 
     // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES DE UN TIPO DE RUBRO ESPECIFICO --------------- //
     @GetMapping("/filtrar/tipo-rubro")
-    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoRubro(@RequestParam TipoRubro tipoRubro){
-        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoRubro(tipoRubro));
+    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoRubro(@RequestParam TipoRubro rubro){
+        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoRubro(rubro));
     }
 
     // --------------- ENDPOINT GET: OBTENER TODOS LOS PROVEEDORES DE UN TIPO DE PROVEEDOR ESPECIFICO --------------- //
     @GetMapping("/filtrar/tipo-proveedor")
-    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoProveedor(@RequestParam TipoProveedor tipoProveedor){
-        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoProveedor(tipoProveedor));
+    public ResponseEntity<List<Proveedor>> obtenerProveedoresPorTipoProveedor(@RequestParam TipoProveedor tipo){
+        return ResponseEntity.ok(this.proveedorService.obtenerProveedoresPorTipoProveedor(tipo));
     }
 
     // --------------- ENDPOINT GET: OBTENER UN PROVEEDOR POR ID --------------- //
