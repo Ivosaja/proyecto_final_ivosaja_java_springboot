@@ -5,6 +5,7 @@
 
 Permite realizar un **CRUD completo** de proveedores y filtrarlos por **rubro** y **tipo** mediante parámetros opcionales **(query params)**
 
+[Video demostracion de la API](https://youtu.be/VWoce2aBjkA?si=OGjCslMx3VfL04VB)
 
 ### Requisitos
 - JDK de Java 17
