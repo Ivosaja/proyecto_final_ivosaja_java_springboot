@@ -1,7 +1,7 @@
 # Gestión de Proveedores - API REST (Spring Boot + MySQL)
 
 
-**API REST** desarrollada con **Spring Boot**, siguiendo una arquitectura **MVC**, utilizando **JPA/Hibernate** para la persistencia de datos y una base de datos **MySQL dockerizada** para facilitar la ejecución en cualquier entorno.
+**API REST** desarrollada con **Spring Boot**, siguiendo una arquitectura **MVC**, utilizando **JPA/Hibernate** para la persistencia de datos, **Lombok** para getters, setters y constructors con el objetivo de reducir codigo boilerplate y una base de datos **MySQL dockerizada** para facilitar la ejecución en cualquier entorno.
 
 Permite realizar un **CRUD completo** de proveedores y filtrarlos por **rubro** y **tipo** mediante parámetros opcionales **(query params)**
 
@@ -17,6 +17,7 @@ Permite realizar un **CRUD completo** de proveedores y filtrarlos por **rubro** 
     - Spring Web
     - Spring Data JPA
     - Spring Validation (Jakarta)
+    - Lombok
 - Hibernate (ORM)
 - MySQL (via Docker)
 - Maven
