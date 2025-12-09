@@ -11,7 +11,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+// Lombox para reducir codigo repetitivo
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity // Marco la clase como entidad JPA
 @Table(name = "proveedor") // Mapeo a la tabla "proveedor" de la BD
 public class Proveedor {
@@ -43,72 +52,5 @@ public class Proveedor {
     @NotNull(message = "El tipo de proveedor es obligatorio")
     @Enumerated(EnumType.STRING)
     private TipoProveedor tipoProveedor;
-
-    public Proveedor(){}
-
-    public Proveedor(Long id, String nombre, String apellido, String email, String telefono, TipoRubro tipoRubro, TipoProveedor tipoProveedor){
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.telefono = telefono;
-        this.tipoRubro = tipoRubro;
-        this.tipoProveedor = tipoProveedor;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public String getApellido() {
-        return this.apellido;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefono() {
-        return this.telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public TipoRubro getTipoRubro() {
-        return this.tipoRubro;
-    }
-
-    public void setTipoRubro(TipoRubro tipoRubro) {
-        this.tipoRubro = tipoRubro;
-    }
-
-    public TipoProveedor getTipoProveedor() {
-        return this.tipoProveedor;
-    }
-
-    public void setTipoProveedor(TipoProveedor tipoProveedor) {
-        this.tipoProveedor = tipoProveedor;
-    }
-
-    
-
 
 }
